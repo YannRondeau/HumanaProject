@@ -1,0 +1,20 @@
+<?php include 'header.phtml'; ?>
+
+<main id="register">
+  <div class="register-page">
+    <div class="form">
+
+    <form method="post" action="register.php">
+    <?php include 'errors.php'; ?>
+
+      <input type="text" name="username" placeholder="Username" value="<?php echo $username; ?>">
+      <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>">
+      <input type="password" name="password_1" placeholder="Password">
+      <input type="password" name="password_2" placeholder="Password">
+      <button type="submit" class="btn" name="reg_user">Register</button>
+
+    <p class="message">Already a member? <a href="login.php">Sign in</a>
+    </p>
+
+  </form>
+</main>

@@ -1,0 +1,959 @@
+@font-face {
+  font-family: "MyFont";
+  src: url(../fonts/RatherUnfortunate.ttf);
+}
+
+
+/* ------ GLOBAL ------ */
+* {
+	box-sizing: border-box;
+}
+
+body::after {
+  content: "";
+  background: url('../images/image-fond.jpg');
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1;
+}
+
+.flex {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.clear {
+	clear: both;
+}
+
+.container {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-family: 'MyFont', cursive;
+}
+
+h3 {
+  border-bottom: 1px solid #969630;
+}
+
+
+/* ------ HEADER ------ */
+header {
+  background-color: black;
+	border-bottom: 1px solid white;
+  height: 115px;
+  width: 100%;
+}
+
+header #nav {
+	font-size: 15px;
+	letter-spacing: .5px;
+  width: 100%;
+}
+
+header #nav .flex a {
+  font-family: MyFont;
+  font-size: 17px;
+  position: relative;
+  text-decoration: none;
+	color: white;
+  display: block;
+  overflow: hidden;
+  transition: 0.7s all;
+}
+
+header #nav .flex a:before {
+  content: '';
+  width: 25px;
+  position: absolute;
+  border-bottom: 3px solid white;
+  bottom: -1px;
+  right: 300px;
+  transition: 0.7s all;
+}
+
+header #nav .flex a:hover:before {
+  right: 0;
+}
+
+header #nav ul {
+  list-style-type: none;
+	padding-top: 42px;
+  width: 60%;
+}
+
+header #nav img {
+	width: 150px;
+	float: left;
+}
+
+header #small-nav {
+	position: absolute;
+	top: 10px;
+	right: 70px;
+	font-size: 20px;
+  text-align: center;
+}
+
+#small-nav a {
+  margin: 0 15px;
+	color: white;
+	background-color: black;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+#small-nav .btn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #f1f1f1;
+  margin: 10px;
+  border-radius: 20%;
+  box-shadow: 0 5px 15px -5px #00000070;
+  overflow: hidden;
+  position: relative;
+}
+
+#small-nav .btn:nth-child(1) {
+  color: #3498db;
+}
+#small-nav .btn:nth-child(2) {
+  color: red;
+}
+#small-nav .btn:nth-child(3) {
+  color: orange;
+}
+#small-nav .btn:nth-child(4) {
+  color: purple;
+}
+
+#small-nav .btn i {
+  line-height: 30px;
+  font-size: 17px;
+  transition: 0.2s linear;
+}
+
+#small-nav .btn:hover i {
+  transform: scale(1.3);
+  color: #f1f1f1;
+}
+
+#small-nav .btn::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  transform: rotate(45deg);
+  left: -110%;
+  top: 90%;
+}
+
+#small-nav .btn:nth-child(1)::before {
+  background: #3498db;
+}
+#small-nav .btn:nth-child(2)::before {
+  background: red;
+}
+#small-nav .btn:nth-child(3)::before {
+  background: #ff5500;
+}
+#small-nav .btn:nth-child(4)::before {
+  background: purple;
+}
+
+#small-nav .btn:hover::before {
+  animation: aaa 0.7s 1;
+  top: -10%;
+  left: -10%;
+}
+
+@keyframes aaa {
+  0%{
+    left: -110%;
+    top: 90%;
+  }50%{
+    left: 10%;
+    top: -30%;
+  }100%{
+    top: -10%;
+    left: -10%;
+  }
+}
+
+.open-slide svg {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  display: none;
+}
+
+.side-nav {
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 122px;
+  right: 8px;
+  background-color: #111;
+  opacity: 0.9;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.side-nav a {
+  padding: 10px 10px 10px 30px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #ccc;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover {
+  color: #fff;
+}
+
+.side-nav .btn-close {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#username {
+  position: absolute;
+  right: 100px;
+  color: white;
+}
+
+#username a {
+  text-decoration: none;
+  color: red;
+}
+
+
+
+/* ------ HEADER RESPONSIVE ------ */
+@media screen and (max-width: 1024px) {
+  #nav .flex {
+    display: none;
+  }
+
+  .open-slide svg {
+    display: block;
+  }
+
+  #username {
+    top: 100px;
+    right: 77px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #nav .flex {
+    display: none;
+  }
+}
+
+
+/* ------ MAIN INDEX ------ */
+#index a {
+  font-family: 'Calligraffitti', cursive;
+  font-size: 80px;
+  margin: 20% auto;
+  width: 25%;
+  display: block;
+  text-decoration: none;
+}
+
+#index img {
+  width: 100%;
+}
+
+.logo {
+  top: 0;
+  background: url(../images/fond_wiseband.png) no-repeat fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+}
+
+/* ------ INDEX RESPONSIVE ------ */
+@media screen and (max-width: 1024px) {
+  #index a {
+    width: 45%;
+    margin: 22% auto;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #index a {
+    font-size: 25px;
+    margin-top: 20%;
+    width: 55%;
+  }
+}
+
+/* ------ MAIN HOME ------ */
+#home {
+  margin: 0;
+  padding: 0;
+  height: 900px;
+  background-image: linear-gradient(rgba(0, 0, 150, 0.5),rgba(0, 0, 50, 0.4)),url('../images/fond-home.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#home-title {
+  text-align: center;
+  padding-top: 10%;
+  padding-left: 30%;
+  color: white;
+}
+
+#home iframe {
+  position: absolute;
+  right: 10%;
+  width: 36%;
+  height: 450px;
+}
+
+/* ------ HOME RESPONSIVE ------*/
+@media screen and (max-width: 1024px) {
+  #home iframe {
+    width: 70%;
+    margin: 0;
+  }
+  #home-title {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #home {
+    background-position: left;
+  }
+  #home-title {
+    padding-left: 1%;
+  }
+
+}
+
+
+/* ------ BIOGRAPHY ------ */
+#biography img {
+  width: 60%;
+  margin-left: 22.5%;
+  margin-top: 30px;
+}
+
+#biography h1 {
+  text-align: center;
+}
+
+#text {
+  margin: 0 5% 40px;
+}
+
+#biography p {
+  font-family: 'Aladin', cursive;
+  font-size: 30px;
+}
+
+
+
+/* ------ BIOGRAPHY RESPONSIVE ------ */
+@media screen and (max-width: 1204px) {
+  .container {
+    width: auto;
+  }
+}
+@media screen and (max-width: 720px) {
+  
+}
+
+/* ------ DISCOGRAPHY ------ */
+#discography {
+  margin-top: 80px;
+}
+
+#discography h1 {
+  border-bottom: 1px solid black;
+  display: inline;
+}
+
+#discography p {
+  font-size: 20px;
+}
+
+/* ------ DISCOGRAPHY RESPONSIVE ------ */
+@media screen and (max-width: 1024px) {
+  #discography .right {
+    margin-left: 10px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #discography .flex {
+    display: block;
+  }
+
+  #discography .left {
+    margin-bottom: 40px;
+  }
+}
+
+
+/* ------ MEDIAS ------ */
+.gallery {
+  margin: 10px 50px;
+}
+
+.gallery img {
+  width: 340px;
+  padding: 15px;
+  filter: grayscale(100%);
+  transition: 1s;
+}
+
+.gallery img:hover{
+  filter: grayscale(0);
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery img{
+    filter: grayscale(0);
+    margin-left: 25%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .gallery img{
+    filter: grayscale(0);
+    margin-left: -50px;
+  }
+
+  #video iframe {
+    width: 100%;
+    margin: auto 0;
+  }
+}
+
+/* ------ MUSIC ------ */
+#music #album h1 {
+  text-align: center;
+  padding: 20px;
+  font-family: MyFont;
+}
+
+#music #album iframe {
+  width: 60%;
+  margin-left: 20%;
+}
+
+#music #album a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: block;
+  width: 120px;
+  margin: 4% 50%;
+  padding: 5px 10px;
+  background-color: red;
+}
+
+#music #tracks h1 {
+  margin-top: 100px;
+  font-family: MyFont;
+}
+
+#music #tracks iframe {
+  width: 70%;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+#music #tracks a {
+  font-family: 'Mali', sans-serif;
+  width: 93px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: red;
+  margin-bottom: 50px;
+}
+
+
+
+
+/* ------ MUSIC RESPONSIVE ------ */
+@media screen and (max-width: 1024px) {
+  .container {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #music #album iframe {
+    height: 250px;
+  }
+}
+
+/* ------ PARTNERS ------ */
+.partner-info {
+  background-image: url(../images/carte2.png);
+  background-size: cover;
+  width: 37%;
+  height: 220px;
+  margin: 20px auto;
+  box-shadow: 0px 0px 33px 11px rgba(0,0,0,0.85);
+}
+
+.partner-info p {
+  font-family: 'Aladin', cursive;
+  margin: 100px auto;
+  font-size: 30px;
+  color: white;
+}
+
+.partner-info a {
+  margin: 0 auto;
+  text-decoration: none;
+}
+
+.flex-partner {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+/* ------ PARTNERS RESPONSIVE ------ */
+@media screen and (max-width: 1024px) {
+  .partner-info {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .partner-info {
+    width: 100%;
+    height: 170px;
+  }
+  .partner-info a {
+    right: 12%;
+  }
+}
+
+
+/* ------ CONTACT ------ */
+#contact {
+  margin: 0;
+  padding: 0;
+  height: 900px;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 150, 0.5),rgba(0, 0, 50, 0.5)),url(../images/fond.jpg);
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+.contact-title {
+  display: inline-block;
+  margin-top: 80px;
+  color: #fff;
+  animation: all 1s ease-in;
+}
+
+@keyframes all {
+  from {
+    margin-top: 0;
+    opacity: 0;
+    color: grey;
+  }
+  to {
+    margin-top: 80px;
+    opacity: 1;
+    color: #fff;
+  }
+}
+
+.contact-title h1 {
+  font-size: 32px;
+  line-height: 10px;
+  padding-top: 30px;
+}
+
+.form-control {
+  width: 600px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+input {
+  height: 45px;
+}
+
+form .submit {
+  background: #ff5722;
+  border-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+form .submit:hover {
+  background-color: #f44336;
+  cursor: pointer;
+}
+
+
+/* ------ CONTACT RESPONSIVE ------ */
+@media screen and (max-width: 720px) {
+  .form-control {
+    width: 90%;
+  }
+}
+
+
+/* ------ LOGIN ------ */
+#login {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(0, 0, 150, 0.5),rgba(0, 0, 50, 0.4)),url(../images/colibri.jpg);
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+}
+
+.login-page {
+  width: 360px;
+  padding: 10% 0 0;
+  margin: auto;
+}
+
+.form {
+  position: relative;
+  z-index: 0;
+  background: rgba(106, 40, 88, 0.8);
+  box-shadow: 0px 0px 33px 11px rgba(0,0,0,0.85);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 1;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  padding: 15px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form button:hover, .form button:active {
+  background: #43A047;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: aliceblue;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* ------ REGISTER ------ */
+
+#register {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(rgba(0, 0, 150, 0.5),rgba(0, 0, 50, 0.4)),url(../images/colibri.jpg);
+  height: 900px;
+  background-size: cover;
+  background-position: center;
+}
+
+.register-page {
+  width: 360px;
+  padding: 10% 0 0;
+  margin: auto;
+}
+
+.form {
+  position: relative;
+  z-index: 0;
+  background: rgba(106, 40, 88, 0.8);
+  box-shadow: 0px 0px 33px 11px rgba(0,0,0,0.85);
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 1;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  padding: 15px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.form button:hover, .form button:active {
+  background: #43A047;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: aliceblue;
+  font-size: 12px;
+}
+
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.error {
+  color: red;
+}
+
+
+
+/* ------ FORUM ------*/
+#forum a {
+  text-decoration: none;
+  color:#01a2a6
+}
+#forum_article {
+  font-family: 'Alegreya', serif;
+  border: 2px solid black;
+  margin: 30px 0;
+  background-color: #eef5fc;
+}
+
+#forum_article:hover {
+  transform: translate(0, -7px);
+  box-shadow: 0px 32px 15px -15px rgba(0,0,0,.2);
+}
+
+
+
+
+/* ------ ARTICLE ------ */
+#new_article {
+  font-family: 'Alegreya', serif;
+  margin: 0 auto;
+  width: 50%;
+  padding: 30px;
+  border: 1px solid #01a2a6;
+  background-color: #eef5fc;
+}
+
+#new_article legend {
+  color: #01a2a6;
+}
+
+#new_article input, #new_article select, #new_article textarea {
+  margin: 12px;
+  width: 70%;
+
+}
+
+#new_article label {
+  display: inline-block;
+  width: 100px;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+button {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+#new_article textarea {
+  height: 270px;
+}
+
+#save {
+  margin-left: 117px;
+  background-color: #339966;
+
+}
+
+button {
+  padding: 8px 13px;
+  margin-top: 15px;
+  background-color: #ff3300;
+  color: white;
+  border-radius: 5px;
+}
+
+/* ------- COMMENT ------ */
+#comment_article, #comments {
+  font-family: 'Alegreya', serif;
+  border: 2px solid black;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  background-color: #eef5fc;
+  box-shadow: 0 5px 15px -5px #00000070;
+}
+
+#comments p:first-child {
+  font-size: 20px;
+  border-bottom: 1px solid black;
+}
+#comments small {
+  font-size: 12px;
+}
+
+#comment {
+  margin: 0 auto;
+  width: 50%;
+  padding: 30px;
+  line-height: 2rem;
+}
+
+#comment fieldset {
+  background-color: #eef5fc
+}
+
+#comment input {
+  width: 60%;
+}
+
+#comment textarea {
+  width: 60%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+#add {
+  background-color: #339966;
+  margin-left: 135px;
+}
+
+.margin {
+  padding-left: 30px;
+}
+@media screen and (max-width: 1024px) {
+  #comment {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #comment {
+    width: 95%;
+  }
+}
+
+
+
+
+/* ------ CSS EFFECTS ------ */
+
+/* ------ GROW EFFECT ------ */
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+
+/* ------ BUTTON EFFECT ------ */
+.btn_effect {
+  transform: translate(-50%,-50%);
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: sans-serif;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a8f4);
+  background-size: 400%;
+  border-radius: 40px;
+}
+
+.btn_effect:hover {
+  animation: animate 8s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+.btn_effect:before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a8f4);
+  background-size: 400%;
+  border-radius: 40px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.btn_effect:hover:before {
+  filter: blur(20px);
+  opacity: 1;
+}

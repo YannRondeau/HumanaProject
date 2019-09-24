@@ -1,0 +1,25 @@
+<?php include 'header.phtml'; ?>
+
+<main id="contact">
+	<div class="contact-title">
+		<h1>Contact and Booking</h1>
+	</div>
+
+	<div class="contact-form">
+
+		<form id="contact-form" method="post" action="">
+
+			<?php include 'errors.php'; ?>
+			
+			<input type="text" name="name" class="form-control" placeholder="Your Name" value="<?php if(isset($_POST['name'])) { echo $_POST['name']; } ?>"><br>
+
+			<input type="email" name="email" class="form-control" placeholder="Your Email" value="<?php if(isset($_POST['mail'])) { echo $_POST['mail']; } ?>"><br>
+
+			<textarea name="message" class="form-control" placeholder="Message" rows="4" value="<?php if(isset($_POST['message'])) { echo $_POST['message']; } ?>"></textarea><br>
+
+			<input type="submit" class="form-control submit" value="SEND MESSAGE">
+		</form>
+		
+	</div>
+	
+</main>

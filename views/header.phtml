@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Humana Project</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Clicker+Script|Dancing+Script|Tangerine" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Mali" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya" rel="stylesheet"> 
+	<link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+</head>
+<body>
+	<header>
+		<nav id="nav">
+
+			<a href="../index.php"><img src="images/logo.png" class="grow"></a>
+
+			<ul class="flex">
+				<li><a href="home.php">Home</a></li>			
+				<li><a href="biography.php">Biography</a></li>			
+				<li><a href="discography.php">Discograpy</a></li>		
+				<li><a href="medias.php">Medias</a></li>
+				<li><a href="music.php">Musics</a></li>			
+				<li><a href="partners.php">Partners</a></li>	
+				<li><a href="contact.php">Contact</a></li>
+				<li><a href="login.php" style="margin-left: 3%">Login</a></li>
+				<li><a href="forum.php">Forum</a></li>
+
+			</ul>
+		</nav>
+
+
+		<nav id="small-nav">
+			<a class="btn" href="https://www.facebook.com/HumanaProjectMusic/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+			<a class="btn" href="https://www.youtube.com/channel/UC5llNt3ntkpfdqRHSIBOu5Q" target="_blank"><i class="fab fa-youtube"></i></a>
+			<a class="btn" href="https://soundcloud.com/humanaproject" target="_blank"><i class="fab fa-soundcloud"></i></a>
+			<a class="btn" href="https://www.instagram.com/humana.project/" target="_blank"><i class="fab fa-instagram"></i></a>
+			</ul>
+		</nav>
+
+		<?php if($_SESSION): ?>
+			<div id="username">
+				<span>Hello <?= $_SESSION['username'] ?> <a href="logout.php">Log out</a></span>
+			</div>
+		<?php endif; ?>
+
+
+		
+			<span class="open-slide">
+				<a href="#" onclick="openSlideMenu()">
+					<svg width="50" height="50">
+						<path d="M0,5 38,5" stroke="#fff" stroke-width="5"/>
+						<path d="M0,14 38,14" stroke="#fff" stroke-width="5"/>
+						<path d="M0,23 38,23" stroke="#fff" stroke-width="5"/>
+					</svg>
+				</a>
+			</span>
+
+			<div id="side-menu" class="side-nav">
+				<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+				<a href="home.php">Home</a>
+				<a href="biography.php">Biography</a>
+				<a href="discography.php">Discography</a>
+				<a href="medias.php">Medias</a>
+				<a href="music.php">Musics</a>
+				<a href="partners.php">Partners</a>
+				<a href="contact.php">Contact</a>
+				<a href="login.php">Login</a>
+				<a href="forum.php">Forum</a>
+			</div>
+			
+			
+		
+
+
+		<div class="clear"></div>
+	</header>
+
+	<script type="text/javascript" src="js/main.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous"></script>
